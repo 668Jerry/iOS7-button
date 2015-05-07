@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switchery - iOS 7 style switches for your checkboxes</title>
+    <link href="http://abpetkov.github.io/switchery/dist/switchery.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <input type="checkbox" class="js-switch-disabled" checked />
+    <input type="checkbox" class="js-switch-disabled-opacity" checked />
+    <input type="checkbox" class="js-switch-blue" checked />          
+    <input type="checkbox" class="js-switch-pink" />
+    <input type="checkbox" class="js-switch-small" checked />
+    <input type="checkbox" class="js-switch-small" checked />
+    <input type="checkbox" class="js-switch-small" checked />
+    <script type="text/javascript" src="http://abpetkov.github.io/switchery/dist/switchery.min.js"></script>
+    <script type="text/javascript">
+      if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html, { size: 'small' });
+        });
+      } else {
+        var elems = document.querySelectorAll('.js-switch-small');
+
+        for (var i = 0; i < elems.length; i++) {
+          var switchery = new Switchery(elems[i], { size: 'small' });
+        }
+      }
+      // Disabled switch
+      var disabled = document.querySelector('.js-switch-disabled');
+      var switchery = new Switchery(disabled, { disabled: true });
+
+      var disabledOpacity = document.querySelector('.js-switch-disabled-opacity');
+      var switchery = new Switchery(disabledOpacity, { disabled: true, disabledOpacity: 0.75 });
+
+      // Colored switches
+      var blue = document.querySelector('.js-switch-blue');
+      var switchery = new Switchery(blue, { color: '#7c8bc7', jackColor: '#9decff' });
+
+      var pink = document.querySelector('.js-switch-pink');
+      var switchery = new Switchery(pink, { color: '#faab43', secondaryColor: '#fC73d0', jackColor: '#fcf45e', jackSecondaryColor: '#c8ff77' });
+    </script>
+  </body>
+</html>
